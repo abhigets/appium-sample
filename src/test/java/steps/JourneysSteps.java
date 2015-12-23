@@ -24,7 +24,7 @@ public class JourneysSteps extends Contacts{
         }
     }
 
-    @And("^User Views the contact card with following data$")
+    @And("^User is shown the contact card with following data$")
     public void User_Views_the_contact_card_with_following_data(List<ContactInfo> contactInfoList) throws Throwable {
         String expectedName = contactInfoList.get(0).getName();
         String actualName = contactViewScreen.getNameOnContactCard();
@@ -33,6 +33,17 @@ public class JourneysSteps extends Contacts{
 
     @Then("^User should see \"([^\"]*)\" contact listed on home page$")
     public void User_should_see_contact_listed_on_home_page(String contactName) throws Throwable {
-        homeScreen.isContactPresentInList(contactName);
+        assertThat(homeScreen.isContactPresentInList(contactName)).isTrue();
+    }
+
+    @When("^User choose to delete contact \"([^\"]*)\"$")
+    public void User_delete_contact(String contactName) throws Throwable {
+        homeScreen.selectContact(contactName);
+        contactViewScreen.deleteContact();
+    }
+
+    @Then("^User should not see \"([^\"]*)\" contact listed on home page$")
+    public void User_should_not_see_contact_listed_on_home_page(String contactName) throws Throwable {
+        assertThat(homeScreen.isContactPresentInList(contactName)).isFalse();
     }
 }

@@ -28,6 +28,7 @@ public class Contacts extends BaseScreen{
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("avd","TestDevice");
         capabilities.setCapability("androidPackage", appPackageName);
+        capabilities.setCapability("noReset", "true");
         capabilities.setCapability("appActivity","com.android.contacts.activities.PeopleActivity");
     }
 
