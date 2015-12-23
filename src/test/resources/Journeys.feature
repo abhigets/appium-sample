@@ -4,7 +4,7 @@ Feature: simple journey
     Given Contacts application is launched
 
   @journey1
-  Scenario: Contact creation viewing and deletion
+  Scenario: Contact creation, viewing and deletion
     Given Contact application is launched
     When User creates a new contact with following data
     |name|phoneNumber|emailId|

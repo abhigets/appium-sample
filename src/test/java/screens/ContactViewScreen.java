@@ -16,6 +16,7 @@ public class ContactViewScreen extends BaseScreen{
     //Option button at top right corner
     private void selectOptionButton() {
         By optionButton = By.xpath("//android.view.View//android.widget.ImageButton");
+        wait.until(ExpectedConditions.elementToBeClickable(optionButton));
         driver.findElement(optionButton).click();
     }
 
@@ -27,7 +28,7 @@ public class ContactViewScreen extends BaseScreen{
         driver.findElement(deleteOption).click();
 
         By confirmationOkButton = By.id("android:id/button1");
-        driver.findElement(confirmationOkButton);
+        driver.findElement(confirmationOkButton).click();
     }
 
 }
